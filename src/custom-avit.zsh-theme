@@ -29,11 +29,15 @@ function _user_host() {
 # use a neutral color, otherwise colors will vary according to time.
 function _git_time_since_commit() {
   local last_commit now seconds_since_last_commit
+  local short_commit_hash
   local minutes hours days years commit_age
   # Only proceed if there is actually a commit.
   if last_commit=$(git log --pretty=format:'%at' -1 2> /dev/null); then
     now=$(date +%s)
     seconds_since_last_commit=$((now-last_commit))
+
+    # Short SHA1 hash
+    short_commit_hash=$(git rev-parse --short HEAD)
 
     # Totals
     minutes=$((seconds_since_last_commit / 60))
@@ -51,7 +55,7 @@ function _git_time_since_commit() {
       commit_age="${minutes}m"
     fi
 
-    echo "${ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL}${commit_age}%{$reset_color%}"
+    echo "${ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL}${commit_age} [$short_commit_hash] %{$reset_color%}"
   fi
 }
 
