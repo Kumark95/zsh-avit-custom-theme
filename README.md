@@ -4,3 +4,7 @@ Fork of the [Avit](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/avit.zs
 
 ## Changes
 * Included short SHA1 commit hash next to the time since last commit
+* Removed new line from start of promt
+
+## Usage
+Copy the theme inside the `src/` directory to the installation directory `$ZSH/themes/`
