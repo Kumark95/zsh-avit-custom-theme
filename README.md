@@ -9,3 +9,6 @@ Fork of the [Avit](https://github.com/ohmyzsh/ohmyzsh/blob/master/themes/avit.zs
 
 ## Usage
 Copy the theme inside the `src/` directory to the installation directory `$ZSH/themes/`
+
+## Screenshots
+![Terminal look](screenshots/terminal.png "Terminal look")
