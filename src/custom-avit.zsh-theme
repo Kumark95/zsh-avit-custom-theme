@@ -5,7 +5,7 @@ typeset +H _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
 typeset +H _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
 typeset +H _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
-PROMPT='$(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
+PROMPT='$(_user_host)${_current_dir} $(_current_time) $(git_prompt_info) $(ruby_prompt_info)
 %{%(!.%F{red}.%F{white})%}▶%{$resetcolor%} '
 
 PROMPT2='%{%(!.%F{red}.%F{white})%}◀%{$reset_color%} '
@@ -56,6 +56,11 @@ function _git_time_since_commit() {
 
     echo "${ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL}${commit_age} [$short_commit_hash] %{$reset_color%}"
   fi
+}
+
+# Display the current time
+function _current_time() {
+  echo "⌚ %{$fg_bold[red]%}%*"
 }
 
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
